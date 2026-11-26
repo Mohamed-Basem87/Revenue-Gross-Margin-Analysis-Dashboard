@@ -73,8 +73,10 @@ Power Query performs header promotion, removal of three preamble rows in the rev
 | `Revenue[Product ID]` | `dProduct[Product ID]` | Many-to-one |
 | `dProduct[Supplier]` | `Supplier[Supplier]` | Many-to-one |
 | `Revenue[Salesperson ID]` | `dsalesperson[Salesperson ID]` | Many-to-one |
+| `Revenue[Due Date]` | `dCalendar[Date]` | Many-to-one |
+| `Revenue[Order Date]` | Hidden local date table used by the Order Date slicer | Many-to-one |
 
-`dCalendar` is a DAX-generated date table used for month labels and the date hierarchy slicer.
+`dCalendar` is a DAX-generated date table used for month labels and the Due Date hierarchy slicer; the Order Date slicer uses a separate hidden local date table. These two date relationships are present in the model but are omitted by `pbixray.relationships` because the date tables are system-flagged. This is why best-month results differ depending on which date slicer is active.
 
 ---
 
@@ -112,8 +114,8 @@ The PBIX contains three pages:
 | Page | Status | Contents |
 | --- | --- | --- |
 | **Revenue And Gross Margin** | Live, 14 visuals | Revenue / Gross Margin / Margin % cards + best-month cards, three monthly area charts, supplier/product pivot, team-by-category bar chart, date and salesperson slicers |
-| **Income Statement** | Design placeholder | SVG background only, no visuals |
-| **Simulation** | Design placeholder | SVG background only, no visuals |
+| **Income Statement** | Hidden design placeholder | SVG background only, no visuals |
+| **Simulation** | Hidden design placeholder | SVG background only, no visuals |
 
 ---
 

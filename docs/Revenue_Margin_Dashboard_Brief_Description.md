@@ -6,11 +6,11 @@
 The Revenue & Gross Margin Analysis Dashboard is a Power BI report built on product, supplier, salesperson and transactional revenue data. It transforms raw Excel sources into a star schema and measures operational revenue, cost, gross margin and margin percentage across suppliers, product categories and sales teams.
 
 ## What It Does
-- Cleans and reshapes four raw Excel sources in Power Query, including header promotion, preamble-row removal, type casting and a product-to-supplier merge that attaches supplier logos.
+- Cleans and reshapes two raw Excel workbooks (`Product.xlsx` and `Revenue.xlsx`) into four Power Query tables (products, suppliers, salespeople and revenue), including header promotion, preamble-row removal, type casting and a product-to-supplier merge that attaches supplier logos.
 - Loads a star schema with `Revenue` as the fact table and `dProduct`, `Supplier`, `dsalesperson` and a DAX-generated `dCalendar` as dimensions.
 - Calculates Revenue, Cost, Gross Margin and Gross Margin % with DAX, plus a dynamic "best month" label driven by TopN filters.
 - Breaks profitability down by supplier (5), product group (23), category (Food / Drinks) and sales team (Retail / Wholesales / Online).
-- Presents three report pages: the live Revenue & Gross Margin page plus Income Statement and Simulation design pages.
+- Presents one live report page (Revenue & Gross Margin) plus two hidden design placeholders (Income Statement and Simulation).
 
 ## Data Model
 A star schema with one fact table, four dimensions and five DAX measures. Relationships: Revenue → dProduct → Supplier, and Revenue → dsalesperson.
